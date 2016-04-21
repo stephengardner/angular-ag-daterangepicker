@@ -1,6 +1,6 @@
 {
   "name": "angular-ag-daterangepicker",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "homepage": "https://github.com/stephengardner/angular-ag-daterangepicker",
   "main": "js/angular-daterangepicker.js",
   "authors": [
