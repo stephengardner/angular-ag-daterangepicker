@@ -13,7 +13,7 @@ Angular.js directive for Dan Grossmans's [Bootstrap Datepicker](https://github.c
 ## Installation via Bower
 The easiest way to install the picker is:
 ```
-bower install ag-angular-daterangepicker --save
+bower install angular-ag-daterangepicker --save
 ```
 ## Manual installation
 This directive depends on [Bootstrap Datepicker](https://github.com/dangrossman/bootstrap-daterangepicker), [Bootstrap](http://getbootstrap.com), [Moment.js](http://momentjs.com/) and [jQuery](http://jquery.com/).
