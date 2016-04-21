@@ -6,8 +6,7 @@ Angular.js directive for Dan Grossmans's [Bootstrap Datepicker](https://github.c
 
 [DEMO](http://fragaria.github.io/angular-daterangepicker/)
 
-**Beware: Use [Bootstrap Datepicker](https://github.com/dangrossman/bootstrap-daterangepicker) v 2.0.0 and newer!
-Older version of datepicker are supported with 0.1.17 release**
+**Beware: Use [Bootstrap Datepicker](https://github.com/dangrossman/bootstrap-daterangepicker) v 2.0.0 and newer!**
 
 ![Date Range Picker screenshot](http://i.imgur.com/zDjBqiS.png)
 
@@ -97,21 +96,9 @@ All event handlers from the Bootstrap daterangepicker are supported. For referen
 
 `cancel.daterangepicker`: Triggered when the cancel button is clicked
 
-## Compatibility
-Version > 0.2.0 requires [Bootstrap Datepicker](https://github.com/dangrossman/bootstrap-daterangepicker) 2.0.0 and newer.
-Version > 0.1.1 requires [Bootstrap Datepicker](https://github.com/dangrossman/bootstrap-daterangepicker) 1.3.3 and newer.
-
 ## Links
 See [original documentation](https://github.com/dangrossman/bootstrap-daterangepicker).
 
-## Issues and Pull Requests
-The PRs are more than welcome – thank you for those.
-
-Please send PRs only for `*.coffee` code. Javascript and minified Javascript should be generated with `grunt dist` command
-just before the commit.
 
 [![Throughput Graph](https://graphs.waffle.io/fragaria/angular-daterangepicker/throughput.svg)](https://waffle.io/fragaria/angular-daterangepicker/metrics)
 
-## Contributors
-See [CONTRIBUTORS.md](https://github.com/fragaria/angular-daterangepicker/blob/master/CONTRIBUTORS.md) for all the great folks who contributed to this repo!
-Thank you, guys!
