@@ -128,6 +128,7 @@
 				modelCtrl.$isEmpty = function(val) {
 					return !(angular.isString(val) && val.length > 0);
 				};
+				// #deprecated
 				_setModelThroughStandardCallback = function(start, end) {
 					return $scope.$apply(function() {
 						return $scope.model = opts.singleDatePicker ? start : {
@@ -136,17 +137,47 @@
 						};
 					});
 				};
+				// #deprecated
 				_setModelThroughEventCallback = function(event, picker) {
 					return _setModelThroughStandardCallback(picker.startDate, picker.endDate);
 				};
 				_init = function() {
 					var eventType, results;
+					// removing the daterangepicker if it exists.
+					// todo check if this is necessary
+					if(el.data && el.data('daterangepicker')) {
+						el.data('daterangepicker').remove();
+					}
 					el.daterangepicker(angular.extend(opts, {
 						autoUpdateInput: false
-					}), _setModelThroughStandardCallback);
+					}),
+						// This function must be inline, if it's not inline, we need to find a way to isolate
+						// what's happening here.  Because for some reason when two datepickers are on the same page,
+						// the second one will override the first one, ONLY when they both have options,
+						// and hence, ONLY when they both get this _init called again.
+						function(start, end){
+						return $scope.$apply(function() {
+							return $scope.model = opts.singleDatePicker ? start : {
+								startDate: start,
+								endDate: end
+							};
+						});
+					});
 					_picker = el.data('daterangepicker');
 					results = [];
-					results.push(el.on('apply.daterangepicker', _setModelThroughEventCallback));
+					results.push(el.on('apply.daterangepicker',
+						// This function must be inline, if it's not inline, we need to find a way to isolate
+						// what's happening here.  Because for some reason when two datepickers are on the same page,
+						// the second one will override the first one, ONLY when they both have options,
+						// and hence, ONLY when they both get this _init called again.
+						function(event, picker) {
+							return $scope.$apply(function () {
+								return $scope.model = opts.singleDatePicker ? start : {
+									startDate: picker.startDate,
+									endDate: picker.endDate
+								};
+							});
+						}));
 					for (eventType in opts.eventHandlers) {
 						results.push(el.on(eventType, function(e) {
 							var eventName;
